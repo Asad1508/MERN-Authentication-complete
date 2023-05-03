@@ -15,9 +15,6 @@ const Navbar = () => {
                  </Typography>
 <Button component={NavLink} to='/' style={({isActive})=>{return {backgroundColor:isActive ? '#6d1b7b':''}}} sx={{color:"white"}}>Home</Button>
 <Button component={NavLink} to='contact' style={({isActive})=>{return {backgroundColor:isActive ? '#6d1b7b':''}}} sx={{color:"white"}} >Contact</Button>
-{/* ye code likha takay jab tk login ha tu login k button ki jaga dashboard ka button dikhaye ye token se horha 
-jab logout krde tu dashboard k button ki jhaga login dikhaye
-*/}
 {token ? <Button component={NavLink} to='dashboard' style={({isActive})=>{return {backgroundColor:isActive ? '#6d1b7b':''}}} sx={{color:"white"}} >Dashboard</Button>
 :<Button component={NavLink} to='login' style={({isActive})=>{return {backgroundColor:isActive ? '#6d1b7b':''}}} sx={{color:"white"}} >Login/Registration</Button>
   }

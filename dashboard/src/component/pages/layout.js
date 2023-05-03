@@ -5,7 +5,6 @@ const Layout = () => {
   return (
       <>
     <Navbar/>
-    {/* yaha outlet likha ye home ko render krwa rha */}
     <Outlet/>
 
     </>

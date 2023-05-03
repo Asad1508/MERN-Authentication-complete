@@ -41,9 +41,6 @@ setValue(newValue);
         <Tab  label="Registration" />
       </Tabs>
     </Box>
-    {/* isme jo value di wo agr login k tab pr click kre gay tu value iss se match hogi aur login
-    component pr le jye ga issi trh value={value likhi jo registration pr click hone pr registration pr lay jye ga
-    onchange event se value change hogi}*/}
     <Tabpanel value={value} index={0}><Userlogin/></Tabpanel>
     <Tabpanel value={value} index={1}><Registration/></Tabpanel>
     </Card>

@@ -1,7 +1,5 @@
-//token ko store krne k liye ye file bnai
 
 const StoreToken=(value)=>{
-    //isme token key ha aur value actual token ha jo parameter se aye ga
 localStorage.setItem('token',value)
 }
 

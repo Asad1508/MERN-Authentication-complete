@@ -5,7 +5,6 @@ import { useChangeUserPasswordMutation } from '../../../services/userauthapi';
 import { GetToken } from '../../../services/jwtlocalstorage';
 const Changepass = () => {
 const navigate=useNavigate();
-     //ye state bnai takay agr input fields empty submit kre tu error de wrna success
    const [error,setError]=useState({
     status:false,
     msg:"",
@@ -13,31 +12,23 @@ const navigate=useNavigate();
 })
 const [changeUserPassword]=useChangeUserPasswordMutation() 
 const token=GetToken('token')
-// agr ham khali submit button pr click kre tu load hota page tu ye function uss se prevent krta k na hu load
 const handlesubmit= async(e)=>{    
 e.preventDefault();
 
-//iss code se form ka data  get kr rhe
 const data=new FormData(e.target);
 const actualdata={
-//isme jo email likha ye form me name me jo likha wo ha
 password:data.get('password'),
 password_confirmation:data.get('password_confirmation')
 }
 if(actualdata.password && actualdata.password_confirmation)
 {
 if(actualdata.password==actualdata.password_confirmation){
-  //isme jo token ha wo get kia oper jwtlocalstorage se
   const res=await changeUserPassword({actualdata,token})  
 if(res.data.status==="success")
 {
  
-//ye code iss liye q k jab ham submit krtay fill kr k tu jo enter kia fields me wo data usme he rehta
-//hata k hona ye chahaye k jab submit pr click kre tu input fields b clear hojye tu ye code issi liye ha 
 document.getElementById('password-change-form').reset();
-//ye wala code agr sari fill kr k submit kia tu neechy success login de ga
 setError({ status:true, msg:"Password Updated", type:'success'})
-//ye time dia k jab send pr click krde ga tu kitni dair bd navigate kre ga
 setTimeout(()=>{
     navigate('/login')    
 },3000)
